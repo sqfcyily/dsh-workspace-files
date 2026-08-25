@@ -7,6 +7,7 @@
 ![license](https://img.shields.io/badge/license-MIT-blue.svg)
 ![DeepSeek Harness](https://img.shields.io/badge/DeepSeek%20Harness-plugin-6c4cf1)
 ![profile](https://img.shields.io/badge/profile-web-informational)
+[![LINUX DO](https://img.shields.io/badge/LINUX%20DO-Featured-ffb003?logo=discourse&logoColor=white)](https://linux.do/t/topic/你的帖子ID)
 
 ![workspace-files screenshot](docs/155158.png)
 
