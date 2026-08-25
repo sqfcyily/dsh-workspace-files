@@ -1,0 +1,16 @@
+# workspace-files bundle patch: one dual-face row over the web-app layer.
+#
+# The single inserted row names this package itself:
+#   • The loader runs its node half (exports["."] apply) as a host plugin,
+#     which registers the file + git HTTP routes (inject: webServer).
+#   • client-modules scans the same loader entry, finds this package's
+#     dsh.client declaration, and serves its browser half (exports["./client"])
+#     — the conversation.view file-browser tab.
+#
+# Applied after @deepseek-ai/dsh-web-app, so ctx.webServer and the client
+# roster (modules) already exist.
+
+- insert:
+    - id: workspace-files
+      name: 'workspace-files'
+      inject: [webServer]

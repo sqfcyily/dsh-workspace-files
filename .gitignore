@@ -1,0 +1,10 @@
+# Packed tarballs (build artifacts consumed by `dsh plugin add`)
+.tgz/
+
+# Local diagnostic scratch
+.probe/
+
+# Test scratch
+.gittest/
+
+node_modules/
