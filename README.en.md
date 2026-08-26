@@ -24,7 +24,6 @@
 - **Directory tree browsing** — lazy-loaded expansion, directories sorted first, hidden files (leading `.`) dimmed.
 - **File viewing** — UTF-8 text content; binary files are auto-detected and skipped; oversized files are truncated with a notice.
 - **Git integration** — working-tree status badges; line-level unified diff for tracked / untracked files (a brand-new file is diffed against the null device via `git diff --no-index`, so its added lines still show).
-- **VS Code-style change decorations** — a changed file's name is tinted by status; a collapsed parent folder whose subtree has any change shows a tinted folder name + a trailing dot, so you can spot changes without expanding it.
 - **Theme-aware** — uses DSH theme tokens throughout (no hardcoded colors/borders), matching the trajectory view and staying consistent in both light and dark themes.
 - **Sandboxed access** — all filesystem access is confined to the session workspace root; path traversal returns `403`.
 - **Graceful degradation** — a non-Git directory, a missing `git` binary, or a binary/untracked file each yields a well-formed response; the frontend hides the diff entry and falls back to plain browsing.
@@ -90,7 +89,7 @@ The workspace root is taken from the current session's `cwd` (the session header
 
 ## Roadmap
 
-- [ ] Syntax highlighting.
+- [x] Syntax highlighting.
 - [ ] Side-by-side (split) diff view.
 - [ ] Pagination / incremental lazy loading for very large directories.
 
