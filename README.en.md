@@ -7,7 +7,7 @@
 ![license](https://img.shields.io/badge/license-MIT-blue.svg)
 ![DeepSeek Harness](https://img.shields.io/badge/DeepSeek%20Harness-plugin-6c4cf1)
 ![profile](https://img.shields.io/badge/profile-web-informational)
-[![LINUX DO](https://img.shields.io/badge/LINUX%20DO-Featured-ffb003?logo=discourse&logoColor=white)](https://linux.do/t/topic/你的帖子ID)
+[![LINUX DO](https://img.shields.io/badge/LINUX%20DO-Featured-ffb003?logo=discourse&logoColor=white)](https://linux.do)
 
 ![workspace-files screenshot](docs/155158.png)
 
@@ -24,6 +24,7 @@
 - **Directory tree browsing** — lazy-loaded expansion, directories sorted first, hidden files (leading `.`) dimmed.
 - **File viewing** — UTF-8 text content; binary files are auto-detected and skipped; oversized files are truncated with a notice.
 - **Git integration** — working-tree status badges; line-level unified diff for tracked / untracked files (a brand-new file is diffed against the null device via `git diff --no-index`, so its added lines still show).
+- **VS Code-style change decorations** — a changed file's name is tinted by status; a collapsed parent folder whose subtree has any change shows a tinted folder name + a trailing dot, so you can spot changes without expanding it.
 - **Theme-aware** — uses DSH theme tokens throughout (no hardcoded colors/borders), matching the trajectory view and staying consistent in both light and dark themes.
 - **Sandboxed access** — all filesystem access is confined to the session workspace root; path traversal returns `403`.
 - **Graceful degradation** — a non-Git directory, a missing `git` binary, or a binary/untracked file each yields a well-formed response; the frontend hides the diff entry and falls back to plain browsing.
@@ -36,10 +37,10 @@
 
 ## Installation
 
-Install from the packed tarball (web profile):
+Download the tarball for the version you want from the GitHub Release, then install (web profile):
 
 ```powershell
-dsh plugin --profile web add ./workspace-files-0.1.0.tgz
+dsh plugin --profile web add ./workspace-files-0.1.1.tgz
 ```
 
 Or install straight from GitHub:

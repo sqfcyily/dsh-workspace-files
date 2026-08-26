@@ -24,6 +24,7 @@
 - **目录树浏览** —— 懒加载展开，目录优先排序，隐藏文件（`.` 开头）弱化显示。
 - **文件查看** —— UTF-8 文本内容；二进制文件自动识别并跳过；超大文件截断并提示。
 - **Git 集成** —— working tree 状态角标；tracked / untracked 文件的行级统一 diff（新文件通过 `git diff --no-index` 对比空设备，也能显示新增行）。
+- **VS Code 风格改动装饰** —— 改动文件的文件名按状态着色；折叠的父文件夹只要内部有改动，就文件夹名变色 + 行尾圆点，无需展开即可看出。
 - **主题自适应** —— 全程使用 DSH 主题 token（无硬编码颜色/边框），与轨迹视图观感一致，明暗主题都协调。
 - **安全隔离** —— 所有文件系统访问限制在会话工作区根目录内，路径穿越返回 `403`。
 - **优雅降级** —— 非 Git 目录、缺少 `git` 可执行文件、二进制/未跟踪文件，都会返回结构良好的响应；前端自动隐藏 diff 入口，退化为纯浏览。
@@ -36,10 +37,10 @@
 
 ## 安装
 
-从打包好的 tarball 安装（web profile）：
+从 GitHub Release 下载对应版本的 tarball，然后安装（web profile）：
 
 ```powershell
-dsh plugin --profile web add ./workspace-files-0.1.0.tgz
+dsh plugin --profile web add ./workspace-files-0.1.1.tgz
 ```
 
 也可以直接从 GitHub 安装：
@@ -98,10 +99,10 @@ dsh plugin --profile web remove workspace-files
 `lib/` 即源码：
 
 ```
-lib/index.js       宿主（Node）半 —— HTTP 路由
-lib/client.js      浏览器（React）半 —— 文件浏览器 UI
-cordis.patch.yml   web profile 补丁（插入 dual-face 行）
-package.json       包清单 + dsh.bundle / dsh.client 声明
+lib/index.js                  宿主（Node）半 —— HTTP 路由
+lib/client.js                 浏览器（React）半 —— 文件浏览器 UI
+cordis.patch.yml              web profile 补丁（插入 dual-face 行）
+package.json                  包清单 + dsh.bundle / dsh.client 声明
 ```
 
 打包成可安装的 tarball：
