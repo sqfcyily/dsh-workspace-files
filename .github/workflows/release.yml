@@ -1,0 +1,90 @@
+name: Release
+
+# Publish a GitHub Release with the packed plugin tarball when a version tag
+# is pushed. The tag must match package.json's version (e.g. tag v0.1.1 ⇒
+# version 0.1.1); a mismatch fails the run before anything is published.
+# Tags containing a pre-release suffix (a "-", e.g. v0.2.0-beta.1) are marked
+# as GitHub pre-releases and do not become "latest".
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+# Serialize releases per tag; never cancel a release mid-publish.
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write # required to create the Release and upload assets
+
+jobs:
+  release:
+    name: publish release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Resolve tag and package version
+        id: meta
+        shell: bash
+        run: |
+          set -euo pipefail
+          tag="${GITHUB_REF_NAME}"                 # e.g. v0.1.1
+          tag_version="${tag#v}"                    # strip leading v ⇒ 0.1.1
+          pkg_version="$(node -p "require('./package.json').version")"
+          echo "tag=$tag"                   >> "$GITHUB_OUTPUT"
+          echo "tag_version=$tag_version"   >> "$GITHUB_OUTPUT"
+          echo "pkg_version=$pkg_version"   >> "$GITHUB_OUTPUT"
+          # Pre-release when the version carries a suffix like -beta.1 / -rc.0.
+          if [[ "$tag_version" == *-* ]]; then
+            echo "prerelease=true"  >> "$GITHUB_OUTPUT"
+          else
+            echo "prerelease=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Verify tag matches package.json version
+        shell: bash
+        run: |
+          set -euo pipefail
+          tag_version="${{ steps.meta.outputs.tag_version }}"
+          pkg_version="${{ steps.meta.outputs.pkg_version }}"
+          if [[ "$tag_version" != "$pkg_version" ]]; then
+            echo "::error::tag version ($tag_version) does not match package.json version ($pkg_version)" >&2
+            exit 1
+          fi
+          echo "tag and package.json agree on version $pkg_version"
+
+      # Sanity: the same checks CI enforces, so a tag can never publish a
+      # bundle that would not pass verify.
+      - name: Syntax-check bundle halves
+        run: |
+          node --check lib/index.js
+          node --check lib/client.js
+
+      - name: Pack the plugin tarball
+        id: pack
+        shell: bash
+        run: |
+          set -euo pipefail
+          file="$(npm pack | tail -n1)"
+          test -f "$file" || { echo "::error::npm pack produced no tarball" >&2; exit 1; }
+          echo "file=$file" >> "$GITHUB_OUTPUT"
+          echo "packed $file"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: ${{ steps.meta.outputs.tag }}
+          tag_name: ${{ steps.meta.outputs.tag }}
+          prerelease: ${{ steps.meta.outputs.prerelease }}
+          generate_release_notes: true
+          fail_on_unmatched_files: true
+          files: ${{ steps.pack.outputs.file }}
