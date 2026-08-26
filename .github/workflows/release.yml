@@ -74,18 +74,10 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          # Ask npm exactly which file it wrote (robust against extra stdout
-          # lines / notices), then normalize it to the canonical asset name
-          # workspace-files-<version>.tgz so the Release asset is deterministic.
-          produced="$(npm pack --json | node -e 'const r=JSON.parse(require("fs").readFileSync(0,"utf8"));process.stdout.write((Array.isArray(r)?r[0]:r).filename)')"
-          test -f "$produced" || { echo "::error::npm pack produced no tarball ($produced)" >&2; exit 1; }
-          target="workspace-files-${{ steps.meta.outputs.pkg_version }}.tgz"
-          if [[ "$produced" != "$target" ]]; then
-            mv -f "$produced" "$target"
-          fi
-          test -f "$target" || { echo "::error::expected asset $target not found" >&2; exit 1; }
-          echo "file=$target" >> "$GITHUB_OUTPUT"
-          echo "packed $target"
+          file="$(npm pack | tail -n1)"
+          test -f "$file" || { echo "::error::npm pack produced no tarball" >&2; exit 1; }
+          echo "file=$file" >> "$GITHUB_OUTPUT"
+          echo "packed $file"
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
