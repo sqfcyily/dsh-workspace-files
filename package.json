@@ -1,7 +1,7 @@
 {
   "name": "workspace-files",
   "description": "Workspace files plugin: host HTTP routes for directory listing / file read / git status+diff, plus a conversation.view file-browser UI. Ships as a bundle that patches one dual-face row into the web profile.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT",
   "author": "sqfcy",
   "keywords": [
