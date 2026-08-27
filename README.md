@@ -111,7 +111,7 @@ package.json                  包清单 + dsh.bundle / dsh.client 声明
 npm pack
 ```
 
-会生成 `workspace-files-<version>.tgz`，即 `dsh plugin add` 消费的产物。
+会生成 `dsh-workspace-files-<version>.tgz`，即 `dsh plugin add` 消费的产物。
 
 ## 相关链接
 

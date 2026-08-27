@@ -111,7 +111,7 @@ Pack an installable tarball:
 npm pack
 ```
 
-This produces `workspace-files-<version>.tgz`, the artifact consumed by `dsh plugin add`.
+This produces `dsh-workspace-files-<version>.tgz`, the artifact consumed by `dsh plugin add`.
 
 ## Related links
 
