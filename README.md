@@ -8,6 +8,7 @@
 ![DeepSeek Harness](https://img.shields.io/badge/DeepSeek%20Harness-plugin-6c4cf1)
 ![profile](https://img.shields.io/badge/profile-web-informational)
 [![LINUX DO](https://img.shields.io/badge/LINUX%20DO-社区推荐-ffb003?logo=discourse&logoColor=white)](https://linux.do)
+[![Awesome DSH Plugin](https://awesome-dsh-plugin.com/badge.svg)](https://awesome-dsh-plugin.com/p/sqfcyily/dsh-workspace-files/)
 
 ![workspace-files 截图](docs/155158.png)
 
