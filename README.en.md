@@ -40,7 +40,7 @@
 Download the tarball for the version you want from the GitHub Release, then install (web profile):
 
 ```powershell
-dsh plugin --profile web add ./workspace-files-0.1.1.tgz
+dsh plugin --profile web add ./dsh-workspace-files-0.1.1.tgz
 ```
 
 Or install straight from GitHub:
@@ -54,7 +54,7 @@ After installing, reopen the dsh Web GUI and a "Files" tab appears at the top of
 ## Uninstall
 
 ```powershell
-dsh plugin --profile web remove workspace-files
+dsh plugin --profile web remove dsh-workspace-files
 ```
 
 ## Usage

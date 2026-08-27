@@ -1,5 +1,5 @@
 {
-  "name": "workspace-files",
+  "name": "dsh-workspace-files",
   "description": "Browse the directories/files of the workspace in DeepSeek Harness Web GUI and display file changes in conjunction with Git.",
   "version": "0.1.1",
   "license": "MIT",

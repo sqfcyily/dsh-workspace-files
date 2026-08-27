@@ -40,7 +40,7 @@
 从 GitHub Release 下载对应版本的 tarball，然后安装（web profile）：
 
 ```powershell
-dsh plugin --profile web add ./workspace-files-0.1.1.tgz
+dsh plugin --profile web add ./dsh-workspace-files-0.1.1.tgz
 ```
 
 也可以直接从 GitHub 安装：
@@ -54,7 +54,7 @@ dsh plugin --profile web add github:sqfcyily/dsh-workspace-files
 ## 卸载
 
 ```powershell
-dsh plugin --profile web remove workspace-files
+dsh plugin --profile web remove dsh-workspace-files
 ```
 
 ## 使用
