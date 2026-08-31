@@ -1,6 +1,6 @@
 **简体中文** | [English](./README.en.md)
 
-# workspace-files
+# dsh-workspace-files
 
 > [DeepSeek Harness (dsh)](https://github.com/deepseek-ai/deepseek-harness) Web GUI 插件 —— 在会话界面里浏览工作区目录、查看文件内容，并结合 Git 显示行级改动（diff）。
 

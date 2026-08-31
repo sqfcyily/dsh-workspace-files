@@ -1,6 +1,6 @@
 [简体中文](./README.md) | **English**
 
-# workspace-files
+# dsh-workspace-files
 
 > A [DeepSeek Harness (dsh)](https://github.com/deepseek-ai/deepseek-harness) Web GUI plugin — browse the session workspace directory tree, view file contents, and show line-level Git changes (diff), right inside the conversation view.
 
