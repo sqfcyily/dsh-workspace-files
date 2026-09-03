@@ -10,11 +10,11 @@
 [![LINUX DO](https://img.shields.io/badge/LINUX%20DO-社区推荐-ffb003?logo=discourse&logoColor=white)](https://linux.do)
 [![Awesome DSH Plugin](https://awesome-dsh-plugin.com/badge.svg)](https://awesome-dsh-plugin.com/p/sqfcyily/dsh-workspace-files/)
 
-![workspace-files 截图](docs/155158.png)
+![dsh-workspace-files 截图](docs/155158.png)
 
 ## 简介
 
-`workspace-files` 给 dsh 的 Web GUI 会话视图（`conversation.view`）加了一个「**文件**」标签页，与「对话」「轨迹」并列。它让你：
+`dsh-workspace-files` 给 dsh 的 Web GUI 会话视图（`conversation.view`）加了一个「**文件**」标签页，与「对话」「轨迹」并列。它让你：
 
 - 📂 浏览当前会话工作区（session 的 `cwd`）的目录树；
 - 📄 查看文本文件内容；

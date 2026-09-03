@@ -10,11 +10,11 @@
 [![LINUX DO](https://img.shields.io/badge/LINUX%20DO-Featured-ffb003?logo=discourse&logoColor=white)](https://linux.do)
 [![Awesome DSH Plugin](https://awesome-dsh-plugin.com/badge.svg)](https://awesome-dsh-plugin.com/p/sqfcyily/dsh-workspace-files/)
 
-![workspace-files screenshot](docs/155158.png)
+![dsh-workspace-files screenshot](docs/155158.png)
 
 ## Overview
 
-`workspace-files` adds a "**Files**" tab to the dsh Web GUI conversation view (`conversation.view`), alongside "Chat" and "Trajectory". It lets you:
+`dsh-workspace-files` adds a "**Files**" tab to the dsh Web GUI conversation view (`conversation.view`), alongside "Chat" and "Trajectory". It lets you:
 
 - 📂 browse the directory tree of the current session's workspace (the session's `cwd`);
 - 📄 view text file contents;

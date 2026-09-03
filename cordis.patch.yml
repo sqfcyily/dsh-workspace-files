@@ -11,6 +11,6 @@
 # roster (modules) already exist.
 
 - insert:
-    - id: workspace-files
-      name: 'workspace-files'
+    - id: dsh-workspace-files
+      name: 'dsh-workspace-files'
       inject: [webServer]
